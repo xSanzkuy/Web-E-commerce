@@ -1,6 +1,7 @@
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowRightCircleIcon, UserIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
+import { kanit, anton } from '@/app/ui/fonts';
 
 export default function Page() {
   return (
@@ -8,7 +9,7 @@ export default function Page() {
       <Image
         src="/bg_hero.png"
         layout='fill'
-        objectFit='cover'
+        objectFit='cover' 
         className='absolute z-0'
         alt="Screenshots of the dashboard project showing desktop version"
       />
@@ -31,11 +32,12 @@ export default function Page() {
       <nav className='fixed top-6 right-6'>
         <div className='flex items-start justify-end'>
           <p>
-            <Link
+          <Link
               href="/login"
-              className="flex items-end gap-5 self-start rounded-lg bg-white bg-opacity-10 px-6 py-3 text-sm font-medium text-white border border-white hover:bg-blue-400 md:text-base"
+              className="flex items-end gap-5 self-start rounded-lg bg-blue-500 bg-opacity-0 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-opacity-20 md:text-base border border-white shadow-none"
             >
-              <span>Log in</span>
+              <span className="hidden md:flex">Log in</span>
+              <UserIcon className="w-5 md:w-6 md:hidden" />
             </Link>
           </p>
         </div>
@@ -49,6 +51,16 @@ export default function Page() {
             </a>
             <br></br><span className="text-6xl font-anton font-bold">Admin Dashboard</span>
           </p>
+          <Link href="/dashboard"
+           >
+           <h1
+            className={`${kanit.className} antialiased flex text-white
+            text-[20px] hover:text-teal-500`}
+            >
+            Go to Dashboard
+           <ArrowRightCircleIcon className='w-6 mx-2'/>
+           </h1>
+          </Link>
         </div>
       </div>
     </main>
