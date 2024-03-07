@@ -50,8 +50,7 @@ export default function Page() {
               <br></br><span className="text-6xl font-anton font-bold">Our Barbershop</span>
             </a>
             <br></br><span className="text-6xl font-anton font-bold">Admin Dashboard</span>
-          </p>
-          <Link href="/dashboard"
+            <Link href="/dashboard"
            >
            <h1
             className={`${kanit.className} antialiased flex text-white
@@ -61,6 +60,7 @@ export default function Page() {
            <ArrowRightCircleIcon className='w-6 mx-2'/>
            </h1>
           </Link>
+          </p>
         </div>
       </div>
     </main>
