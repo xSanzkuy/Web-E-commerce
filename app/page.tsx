@@ -47,7 +47,7 @@ export default function Page() {
           <p className={`text-2xl font-anton text-white md:text-1xl md:leading-normal`}>
             <span className="text-2xl">221711738-Sandi Kurniawan</span>{' '}
             <a href="" className="">
-              <br></br><span className="text-6xl font-anton font-bold">Our Barbershop</span>
+              <br></br><span className="text-6xl font-anton font-bold">Our Barbersshop</span>
             </a>
             <br></br><span className="text-6xl font-anton font-bold">Admin Dashboard</span>
             <Link href="/dashboard"
