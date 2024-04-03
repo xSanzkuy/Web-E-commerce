@@ -54,7 +54,6 @@ export async function fetchLatestInvoices() {
   }
 }
 
-
 export async function fetchLatestReservations() {
   noStore();
   try {
