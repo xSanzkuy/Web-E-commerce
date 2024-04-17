@@ -8,7 +8,7 @@ export default function ReservationStatus({ status }: { status: string }) {
         'inline-flex items-center rounded-full px-2 py-1 text-xs',
         {
           'bg-gray-100 text-gray-500': status === 'pending',
-          'bg-green-500 text-white': status === 'confirmed',
+          'bg-green-500 text-white': status === 'paid',
         },
       )}
     >
@@ -18,9 +18,9 @@ export default function ReservationStatus({ status }: { status: string }) {
           <ClockIcon className="ml-1 w-4 text-gray-500" />
         </>
       ) : null}
-      {status === 'confirmed' ? (
+      {status === 'paid' ? (
         <>
-          Confirmed
+          Paid
           <CheckIcon className="ml-1 w-4 text-white" />
         </>
       ) : null}

@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
+import { updateReservation } from '@/app/lib/actions';
 
 export default function EditReservationForm({
   reservation,
@@ -15,8 +16,9 @@ export default function EditReservationForm({
   reservation: ReservationsForm;
   customers: CustomerField[];
 }) {
+  const updateReservationWithId = updateReservation.bind(null, reservation.id);
   return (
-    <form>
+    <form action={updateReservationWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -92,15 +94,15 @@ export default function EditReservationForm({
                   id="confirmed"
                   name="status"
                   type="radio"
-                  value="confirmed"
-                //   defaultChecked={reservation.status === 'confirmed'}
+                  value="paid"
+                  defaultChecked={reservation.status === 'paid'}
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
-                  htmlFor="confirmed"
+                  htmlFor="Paid"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                 >
-                  Confirmed <CheckIcon className="h-4 w-4" />
+                  paid <CheckIcon className="h-4 w-4" />
                 </label>
               </div>
             </div>

@@ -22,7 +22,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     params.set('page', '1');
 
     replace(`${pathname}?${params.toString()}`);
-  }, 100);
+  }, 400);
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">

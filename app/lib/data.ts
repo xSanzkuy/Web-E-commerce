@@ -18,6 +18,7 @@ import {
 } from './definitions';
 
 import { formatCurrency } from './utils';
+import { reservations } from './placeholder-data';
 
 export async function fetchRevenue() {
   noStore();
@@ -166,7 +167,7 @@ export async function fetchFilteredReservations(query: string, currentPage: numb
         reservations.date::text ILIKE ${'%' + query + '%'} OR
         reservations.status ILIKE ${'%' + query + '%'}
       ORDER BY reservations.date DESC
-      LIMIT 1
+      LIMIT 5
     `;
 
     return reservations.rows;
@@ -245,7 +246,31 @@ export async function fetchInvoiceById(id: string) {
     throw new Error('Failed to fetch invoice.');
   }
 }
+export async function fetchReservationById(id: string) {
+  noStore();
+  try {
+    const data = await sql<ReservationsForm>
+      `SELECT
+        reservations.id,
+        reservations.customer_id,
+        reservations.amount,
+        reservations.status
+      FROM reservations
+      WHERE reservations.id = ${id};`
+    ;
 
+    const reservation = data.rows.map((reservation) => ({
+      ...reservation,
+      // Convert amount from cents to dollars
+      amount: reservation.amount / 100,
+    }));
+
+    return reservation[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch reservation.');
+  }
+}
 export async function fetchCustomers() {
   noStore();
   try {
