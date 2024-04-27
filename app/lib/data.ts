@@ -265,6 +265,7 @@ export async function fetchReservationById(id: string) {
       amount: reservation.amount / 100,
     }));
 
+    console.log(reservation);
     return reservation[0];
   } catch (error) {
     console.error('Database Error:', error);
