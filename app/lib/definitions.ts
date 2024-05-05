@@ -41,7 +41,7 @@ export type Revenue = {
   revenue: number;
 };
 
-export type LatestReservations = {
+export type LatestInvoice = {
   id: string;
   name: string;
   image_url: string;
@@ -49,30 +49,7 @@ export type LatestReservations = {
   amount: string;
 };
 
-export type LatestReservationsRaw = Omit<LatestReservations, 'amount'> & {
-  amount: number;
-};
-
-export type ReservationsTable = {
-  id: string;
-  customer_id: string;
-  name: string;
-  email: string;
-  image_url: string;
-  date: string;
-  amount: number;
-  status: 'pending' | 'paid';
-};
-
-export type ReservationsForm = {
-  id: string;
-  customer_id: string;
-  amount: number;
-  status: 'pending' | 'paid';
-};
-
-
-export type LatestInvoice = {
+export type LatestReservation = {
   id: string;
   name: string;
   image_url: string;
@@ -85,7 +62,22 @@ export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
 };
 
+export type LatestReservationRaw = Omit<LatestReservation, 'amount'> & {
+  amount: number;
+};
+
 export type InvoicesTable = {
+  id: string;
+  customer_id: string;
+  name: string;
+  email: string;
+  image_url: string;
+  date: string;
+  amount: number;
+  status: 'pending' | 'paid';
+};
+
+export type ReservationsTable = {
   id: string;
   customer_id: string;
   name: string;
@@ -126,4 +118,19 @@ export type InvoiceForm = {
   customer_id: string;
   amount: number;
   status: 'pending' | 'paid';
+};
+
+export type ReservationForm = {
+  id: string;
+  customer_id: string;
+  amount: number;
+  status: 'pending' | 'paid';
+};
+
+export type CustomerForm = {
+  amount: number;
+  id: string;
+  name : string;
+  email: string;
+  image_url: string;
 };
